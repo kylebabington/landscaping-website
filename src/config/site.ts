@@ -16,14 +16,14 @@ export const siteConfig = {
   /** Replace YOUR_PHONE_HERE to show a phone number in the footer */
   phone: '(765) 720-3220',
   /** Replace YOUR_CAL_URL_HERE with your Cal.com (or similar) booking URL */
-  schedulingUrl: 'YOUR_CAL_URL_HERE',
-} as const
+  schedulingUrl: 'https://cal.com/kyle-babington-q7dlpy/landscaping-consultation',
+}
 
 /** Derived from siteConfig.email — do not hard-code a separate endpoint. */
 export const formSubmitEndpoint = `https://formsubmit.co/ajax/${siteConfig.email}`
 
-export const isEmailConfigured = siteConfig.email !== 'kylebabington@gmail.com'
-export const isPhoneConfigured = siteConfig.phone !== '7657203220'
+export const isEmailConfigured = siteConfig.email !== 'YOUR_EMAIL_HERE'
+export const isPhoneConfigured = siteConfig.phone !== 'YOUR_PHONE_HERE'
 export const isSchedulingConfigured =
   siteConfig.schedulingUrl !== 'YOUR_CAL_URL_HERE'
 
