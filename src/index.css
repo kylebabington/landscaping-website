@@ -1,0 +1,88 @@
+@import 'tailwindcss';
+
+@theme {
+  --font-display: 'Fraunces', Georgia, 'Times New Roman', serif;
+  --font-sans: 'Source Sans 3', 'Segoe UI', sans-serif;
+
+  --color-bg: #f6f2ea;
+  --color-surface: #efe9df;
+  --color-forest: #1f3d2b;
+  --color-forest-dark: #162b1e;
+  --color-charcoal: #1c1c1a;
+  --color-muted: #5a6358;
+  --color-accent: #6f8570;
+  --color-border: #d6d0c4;
+  --color-white: #ffffff;
+
+  --shadow-soft: 0 10px 30px rgb(28 28 26 / 0.06);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  body {
+    @apply m-0 bg-bg font-sans text-charcoal antialiased;
+  }
+
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-forest;
+  }
+}
+
+@layer utilities {
+  .hero-enter {
+    animation: fade-up 0.8s ease both;
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(0.75rem);
+    transition:
+      opacity 0.6s ease,
+      transform 0.6s ease;
+  }
+
+  .reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @keyframes fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(12px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero-enter {
+      animation: none;
+    }
+
+    .reveal {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+  }
+}
